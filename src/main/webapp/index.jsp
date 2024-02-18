@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 <script>
 	
-	location.href='/home.do';
+	location.href='/login';
 
 </script>
 </head>

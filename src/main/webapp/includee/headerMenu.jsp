@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<c:set var="loginName" value="${sessionScope.loginName}" />
+
 <!-- Navbar: Start -->
     <nav class="layout-navbar shadow-none py-0">
       <div class="container">
@@ -34,6 +37,19 @@
               <li class="nav-item">
                 <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">Home</a>
               </li>
+              <c:if test="${not empty loginName }">
+              	<c:if test="${loginName eq 'admin'}">
+	              <li class="nav-item">
+	                <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">안녕하세요 관리자님</a>
+	              </li>
+              	</c:if>
+              	
+              	<c:if test="${loginName ne 'admin'}">
+	              <li class="nav-item">
+	                <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">안녕하세요 ${loginName}님</a>
+	              </li>
+              	</c:if>
+              </c:if>
             </ul>
           </div>
           <div class="landing-menu-overlay d-lg-none"></div>
@@ -66,13 +82,22 @@
             <!-- / Style Switcher-->
 
             <!-- navbar button: Start -->
-<!--             <li> -->
-<!--               <a href="../vertical-menu-template/auth-login-cover.html" class="btn btn-primary" target="_blank" -->
-<!--                 ><span class="tf-icons bx bx-user me-md-1"></span -->
-<!--                 ><span class="d-none d-md-block">Login/Register</span></a -->
-<!--               > -->
-<!--             </li> -->
-            <!-- navbar button: End -->
+            <c:if test="${empty loginName}">
+	            <li>
+	              <a href='<c:url value="/login"></c:url>' class="btn btn-primary" >
+	              <span class="tf-icons bx bx-user me-md-1"></span>
+	              <span class="d-none d-md-block">Login</span></a>
+	            </li>
+	            <!-- navbar button: End -->
+            </c:if>
+            <c:if test="${not empty loginName}">
+	            <li>
+	              <a href='<c:url value="/login/logout"></c:url>' class="btn btn-primary" >
+	              <span class="tf-icons bx bx-user me-md-1"></span>
+	              <span class="d-none d-md-block">Logout</span></a>
+	            </li>
+	            <!-- navbar button: End -->
+            </c:if>
           </ul>
           <!-- Toolbar: End -->
         </div>

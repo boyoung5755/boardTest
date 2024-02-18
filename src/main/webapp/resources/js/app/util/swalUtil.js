@@ -155,6 +155,20 @@ function fn_swalError(){
 	})
 }
 
+//에러창
+function fn_swalLoginFail(){
+	Swal.fire({
+		text: "비밀번호가 일치하지 않습니다.",
+		icon: "error",
+		//showCancelButton: true,
+		confirmButtonText: '확인',
+		customClass: {
+			confirmButton: 'btn btn-primary me-2',
+			//cancelButton: 'btn btn-label-secondary'
+		},
+		buttonsStyling: false
+	})
+}
 
 /**
  * 알림창

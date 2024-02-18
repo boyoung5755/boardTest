@@ -39,6 +39,19 @@
     <filter-name>HiddenHttpMethodFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- Define the filter -->
+	<filter>
+	    <filter-name>LoginFilter</filter-name>
+	    <filter-class>innovationT.util.LoginFilter</filter-class>
+	</filter>
+	
+	<!-- Map the filter to a URL pattern -->
+	<filter-mapping>
+	    <filter-name>LoginFilter</filter-name>
+	    <url-pattern>/home.do</url-pattern>
+	</filter-mapping>
+  
   <servlet>
     <servlet-name>springDispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

@@ -9,6 +9,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/board/{1}.jsp"  />
 	</definition>
 	
+	<definition name="/login/*" extends="abstractDef">
+		<put-attribute name="content" value="/WEB-INF/views/login/{1}.jsp"  />
+	</definition>
+	
 </tiles-definitions>       
 
 
