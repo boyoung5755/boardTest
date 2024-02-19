@@ -18,6 +18,7 @@ public class BoardVO {
 	private int rnum;
 
 	private int boNo      ;
+	private int boLike      ;   //좋아요
 	private String boSj      ;
 	private String boRdate   ;
 	private String boRdcnt   ;

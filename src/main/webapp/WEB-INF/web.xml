@@ -40,6 +40,7 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  
   <!--제외할 uri 커스텀 필터 -->
 <!-- 	<filter>-->
 <!--	    <filter-name>CustomAuthenticationFilter</filter-name>-->
@@ -61,8 +62,12 @@
 	<!-- Map the filter to a URL pattern -->
 	<filter-mapping>
 	    <filter-name>LoginFilter</filter-name>
-	    <url-pattern>/home.do</url-pattern>
+	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	
+	
+		
   
   <servlet>
     <servlet-name>springDispatcherServlet</servlet-name>

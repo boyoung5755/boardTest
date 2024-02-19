@@ -96,6 +96,9 @@
          <button type="button" class="btn btn-label-warning" onclick="fn_boardEdit(${detail.boNo})">수정</button>
          <button type="button" class="btn btn-label-danger" onclick="fn_deleteBoard(${detail.boNo})">삭제</button>
          <button type="button" class="btn btn-label-dark" onclick="fn_homeList()">목록</button>
+         
+         <c:set var="liked" scope="page" value="${pageScope.liked != null ? true : false}" />
+         <button id="like" type="button" class="btn btn-label-success <c:if test="${liked}">active</c:if> " onclick="like(${detail.boNo})">좋아요</button>
        </div>
     <!-- /Content -->
     </div>
@@ -105,3 +108,27 @@
 <!-- /Layout container --> 
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/app/board/board.js"></script>
+
+
+<script>
+	
+function like(boNo) {
+    // 좋아요 상태를 true로 변경합니다.
+    var liked = true;
+
+    // 좋아요를 서버에 보내고, 버튼을 비활성화합니다.
+    $.ajax({
+        url: '/board/like', // 좋아요를 처리하는 서버의 URL
+        type: 'POST',
+        data: {boNo : boNo},
+        dataType: 'json',
+        success: function(data) {
+            // 서버에서 받은 응답을 화면에 업데이트
+            $('#like').text("좋아요중");
+            //$('button').prop("disabled", true);
+        }
+    });
+}
+
+
+</script>

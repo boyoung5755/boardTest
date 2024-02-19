@@ -35,4 +35,6 @@ public interface BoardDAO {
 
 	public List<CommentVO> selectCommList(CommentVO comment);
 
+	public void updateLike(int boNo);
+
 }

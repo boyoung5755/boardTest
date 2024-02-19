@@ -206,4 +206,10 @@ public class BoardServiceImpl implements BoardService {
 		return fDao.selectOneFile(file);
 	}
 
+	@Override
+	public void modifyLike(int boNo) {
+		dao.updateLike(boNo);
+		
+	}
+
 }

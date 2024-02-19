@@ -1,7 +1,5 @@
 package innovationT.util;
 
-import java.net.URLEncoder;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,12 +25,12 @@ public class CustomIntercepter implements HandlerInterceptor{
 			//관리자페이지로 이동
 			return true;
 		}else{
-			
+	
+			String warningMessage = "Y"; // 경고 메시지
 			String contextPath = request.getContextPath();
 			String redirectUrl = contextPath + "/login"; // 관리자 로그인 페이지 경로
-			String warningMessage = "관리자만 접근할 수 있습니다."; // 경고 메시지
-
-			response.sendRedirect(redirectUrl + "?warning=" + URLEncoder.encode(warningMessage, "UTF-8"));
+			response.sendRedirect(redirectUrl + "?warning="+warningMessage);
+			//response.sendRedirect(redirectUrl); // 리다이렉트
 			
 			
 			return false;

@@ -62,6 +62,16 @@ public class BoardController {
 	private Resource boardImages;	//폴더는 리소스로 받아와야함
 	
 	
+	
+	@PostMapping("like")
+	@ResponseBody
+	public void like(@RequestParam(value="boNo", required = false) int boNo) {
+		
+		service.modifyLike(boNo);
+		
+	}
+	
+	
 	//게시판 리스트 비동기 불러오기
 	@GetMapping("list/{option}")
 	@ResponseBody

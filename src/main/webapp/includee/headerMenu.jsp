@@ -50,6 +50,11 @@
 	              </li>
               	</c:if>
               </c:if>
+              
+              <li class="nav-item">
+                <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">
+                접속자수 : ${empty applicationScope.accessCounter ? 0:applicationScope.accessCounter}</a>
+              </li>
             </ul>
           </div>
           <div class="landing-menu-overlay d-lg-none"></div>

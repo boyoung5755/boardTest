@@ -199,5 +199,13 @@
 		WHERE BO_NO = #{boNo}
 		ORDER BY COMM_RDATE DESC
 	</select>
+	
+	
+	<update id="updateLike" parameterType="int">
+		UPDATE BOARD
+		SET  BO_LIKE = NVL(BO_LIKE,0)+1
+		WHERE BO_NO=#{boNo}
+
+	</update>
 
 </mapper>

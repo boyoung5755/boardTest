@@ -12,6 +12,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
+<c:if test="${param.warning eq 'Y' }">
+	<script>
+		alert("관리자만 사용가능합니다.");	
+	</script>
+</c:if>
+
+
  
 <div class="container-xxl" style="width: 30%;">
       <div class="authentication-wrapper authentication-basic container-p-y">

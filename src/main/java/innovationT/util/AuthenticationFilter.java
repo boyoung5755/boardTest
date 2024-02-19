@@ -25,9 +25,10 @@ public class AuthenticationFilter implements Filter {
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		
+		/*
 		String excludePattern = filterConfig.getInitParameter("excludedUrls");
 		
-		excludedUrls = Arrays.asList(excludePattern.split(","));
+		excludedUrls = Arrays.asList(excludePattern.split(",")); */
 		// TODO Auto-generated method stub
 		
 	}

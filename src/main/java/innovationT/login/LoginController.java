@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping("/login")
-@Log4j2
+@Slf4j
 public class LoginController {
 
 
@@ -51,10 +52,18 @@ public class LoginController {
 			
 			map.put("role", "admin");
 			map.put("success", "Y");
+			
+			//접속자수 카운팅
+			loginCount(req);
+			
 		}else if(username.equals("user")&& password.equals("user")) {
 			session.setAttribute("loginName", username);
 			map.put("role", "user");
 			map.put("success", "Y");
+			
+			//접속자수 카운팅
+			loginCount(req);
+			
 		}else {
 			map.put("success", "N");
 		}	
@@ -62,6 +71,24 @@ public class LoginController {
 		return map;
 	}
 	
+	
+	//접속자수 카운팅
+	public void loginCount(HttpServletRequest req) {
+		
+		//application 예제
+		Integer count = (Integer)req.getServletContext().getAttribute("accessCounter"); 
+		
+		log.info("################## 로그인횟수 : "+String.valueOf(count));
+		
+		if(count == null) {
+			count = 0;
+		}
+		count++;
+		req.getServletContext().setAttribute("accessCounter", count);
+		
+	}
+	
+
 	
 	//로그아웃처리
 	@GetMapping("logout")

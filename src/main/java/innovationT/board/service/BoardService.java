@@ -89,6 +89,11 @@ public interface BoardService {
 	 */
 	public FileVO retrieveFile(FileVO files);
 
+	/**
+	 * 좋아요 카운팅
+	 */
+	public void modifyLike(int boNo);
+
 
 
 }
