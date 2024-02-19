@@ -80,7 +80,7 @@
 	<!-- 게시판의 번호를 등록하기 위한 시퀀스-->
 	<select id="selectBoNo" resultType="int">
 		SELECT
-			MAX(BO_NO)+1 AS boNo
+			NVL(MAX(BO_NO)+1 , 0) AS boNo
 		FROM BOARD
 	</select>
 	

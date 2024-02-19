@@ -6,10 +6,11 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
 	<mvc:annotation-driven validator="validator"></mvc:annotation-driven>
+
 	
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" 
 		p:validationMessageSource-ref="messageSource"
@@ -49,6 +50,17 @@
 			p:paramName="lang"
 		/>
 	</mvc:interceptors>
+	
+	<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin"/>
+            <mvc:exclude-mapping path="/login/**"/>
+            <bean class="innovationT.util.CustomIntercepter" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+	
+	
+	
 	
 </beans>
 

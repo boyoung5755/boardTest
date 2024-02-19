@@ -81,6 +81,11 @@
             </li>
             <!-- / Style Switcher-->
 
+            <li style="padding-right: 10px;">
+              <a href='<c:url value="/admin"></c:url>' class="btn btn-primary" >
+              <span class="tf-icons bx bx-user me-md-1"></span>
+              <span class="d-none d-md-block">관리자페이지</span></a>
+            </li>
             <!-- navbar button: Start -->
             <c:if test="${empty loginName}">
 	            <li>
@@ -104,4 +109,5 @@
       </div>
     </nav>
     <!-- Navbar: End -->
+
 

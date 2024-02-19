@@ -40,6 +40,18 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  <!--제외할 uri 커스텀 필터 -->
+<!-- 	<filter>-->
+<!--	    <filter-name>CustomAuthenticationFilter</filter-name>-->
+<!--	    <filter-class>innovationT.util.AuthenticationFilter</filter-class>-->
+<!--	    <init-param>-->
+<!--	    	<param-name>excludedUrls</param-name>-->
+<!--	    	<param-value>-->
+<!--				/login,/login/auth,/login/logout-->
+<!--			</param-value>-->
+<!--	    </init-param>-->
+<!--  	</filter>-->
+
   <!-- Define the filter -->
 	<filter>
 	    <filter-name>LoginFilter</filter-name>
@@ -69,7 +81,7 @@
   </servlet-mapping>
   <error-page>
     <error-code>404</error-code>
-    <location>/WEB-INF/views/error/error.jsp</location>
+    <location>/WEB-INF/views/error.jsp</location>
   </error-page>
   <error-page>
     <exception-type>java.lang.Exception</exception-type>

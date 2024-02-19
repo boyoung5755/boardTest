@@ -55,6 +55,8 @@
     
 <script>
 
+
+//로그인
 function fn_login(){
 	
 	var dataForm = new FormData($("#formAuthentication")[0]);

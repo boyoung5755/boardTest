@@ -5,6 +5,7 @@ import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+
 @Data
 @EqualsAndHashCode(of="commNo")
 public class CommentVO implements Serializable {

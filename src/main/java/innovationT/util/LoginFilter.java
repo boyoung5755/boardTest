@@ -32,10 +32,14 @@ public class LoginFilter implements Filter {
         log.info("==========Login 필터 시작!==========");
         
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-        
         HttpSession session = httpRequest.getSession();
         
+        String path = httpRequest.getRequestURI();
+        log.info("====현재 URI======"+ path);
+        
+        
         String loginName = (String) session.getAttribute("loginName");
+        
         if (loginName != null) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
